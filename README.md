@@ -36,29 +36,41 @@ reload the page on coexisting-angular-microfrontends.surge.sh. See https://githu
 ## Local development -- all at once
 It is preferred to only run one app at a time. But if you need to run them all locally, you can do so with the following instructions
 
+
+
 ```sh
 # First terminal tab
-cd root-html-file
-npm install
-npm start
-```
-```sh
-# Second terminal tab
 cd app1
 npm install
-npm start
+npm run build
+```
+
+```sh
+# Second terminal tab
+cd app2
+npm install
+npm run build
 ```
 
 ```sh
 # Third terminal tab
-cd app2
+cd navbar
 npm install
-npm start
+npm run build
 ```
 
 ```sh
-# Fourth terminal tab
-cd navbar
+# Forth terminal tab
+cd ag-grid-umd
+npm install
+npm run build
+```
+
+```sh
+# Fifth terminal tab
+cd root-html-file
+cp -r ../app1/node_modules/{@angular,ag-grid-angular,ag-grid-community} ./assets/
+cp ../ag-grid-umd/dist/ag-grid-community.umd.js ./assets/ag-grid-community/
 npm install
 npm start
 ```
